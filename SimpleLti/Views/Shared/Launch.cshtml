@@ -1,0 +1,23 @@
+﻿@model LtiLibrary.AspNet.Lti1.LtiRequestViewModel
+
+@{
+    ViewBag.Title = "Launch";
+    Layout = "~/Views/Shared/_LayoutEmpty.cshtml";
+}
+
+<form id="form" action="@Model.Action" method="post">
+    @foreach (var name in Model.Fields.AllKeys)
+    {
+        <input type="text" name="@name" value="@Model.Fields[name]" />
+    }
+    <input type="text" name="oauth_signature" value="@Model.Signature"/>
+    
+    <input type="submit" />
+
+</form>
+
+<script>
+    //document.getElementById("form").submit();
+</script>
+
+
